@@ -35,31 +35,54 @@ var hungerMeter = document.getElementById('hungerMeter');
 var feedButton = document.getElementById('feedButton');
 feedButton.addEventListener('click', function(){
 	cat.hunger = 0;
-	hungerMeter.innerText = cat.hunger;
 	cat.purr();
 })
-hungerMeter.innerText = cat.hunger;
 
-setInterval(
-	function(){
-		cat.hunger++;
-		hungerMeter.innerText = cat.hunger;
-	},
-	1000)
+var hungerLevel = function(){
+	if (cat.hunger < 10){
+		hungerMeter.innerText = "Feeling Fine!";
+	}
+	else if (cat.hunger < 25){
+		hungerMeter.innerText = "Getting Hungry";
+	}
+	else if (cat.hunger < 40){
+		hungerMeter.innerText = "Feed Me!";
+	}
+	else if (cat.hunger < 50){
+		hungerMeter.innerText = "I'm Starving!!!";
+		cat.meow();
+	}
+	else hungerMeter.innerText = "Dead :("	
+};
 
 var hungry = function(){
 	if(cat.hunger >= 10){
 		cat.image.setAttribute("src", "images/cat_hungry.png");
 	}
-	// }if else {
-	// 	cat.image.setAttribute('src', 'images/kitten.jpg')
-	// }
 }
+var notHungry = function(){
+	if(cat.hunger < 10){
+		cat.image.setAttribute('src', 'images/kitten.jpg');
+	};
+};
+var dead = function(){
+	if (cat.hunger >= 50){
+		cat.image.setAttribute('src', 'images/deadCat.gif')
+	}
+}
+
 setInterval(
 	function(){
+		cat.hunger++;
+		hungerLevel();
 		hungry();
+		notHungry();
+		dead();
 	},
 	1000)
+
+
+
 
 
 
