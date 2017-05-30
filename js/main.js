@@ -45,13 +45,21 @@ setInterval(
 		cat.hunger++;
 		hungerMeter.innerText = cat.hunger;
 	},
-	10000)
+	1000)
 
 var hungry = function(){
 	if(cat.hunger >= 10){
-
+		cat.image.setAttribute("src", "images/cat_hungry.png");
 	}
+	// }if else {
+	// 	cat.image.setAttribute('src', 'images/kitten.jpg')
+	// }
 }
+setInterval(
+	function(){
+		hungry();
+	},
+	1000)
 
 
 
