@@ -3,14 +3,29 @@
 <head>
 	<title>Pet Game</title>
 	<link rel="stylesheet" type="text/css" href="styles/style.css"/>
+	<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
 </head>
 <body>
+	<audio id='meowSound' src="images/meow.mp3"></audio>
+	<div id='hud'>
+		<div class='meter' id='hunger'>
+			<h1>Hunger</h1>
+			<span class='metricDisplay' id='hungerMeter'>Feeling Fine!</span>
+		</div>
+		<div class='meter' id='sleep'>
+			<h1>Sleep</h1>
+			<span class='metricDisplay' id='sleepMeter'>Feeling Fine!</span>
+		</div>
+<!-- 		<div class='meter' id='happy'>
+			<h1>Happiness</h1>
+			<span class='metricDisplay' id="happinessMeter" ></span>
+		</div>
+ -->	</div>
 	<header>
 			<h1 id='catName'></h1>
 	</header>
 		
-	<img src="images/kitten.jpg" id='kitten'/>
-	<span id='hungerMeter'></span>
+	<img src="images/transparentKitten.png" id='kitten'/>
 		
 	<div id='inputs'>
 		<input placeholder="Your Pet" id='catNameInput'/>
@@ -18,9 +33,10 @@
 		<button id='meowButton'>Meow</button>
 		<button id='petButton'>Pet</button>
 		<button id='feedButton'>Feed</button>
+		<button id='lightsOutButton'>Lights Out</button>
 	</div>
 
 
-	<script type="text/javascript" src="js/main.js"></script>
+	<script type="text/javascript" src="js/main2.js"></script>
 </body>
 </html>

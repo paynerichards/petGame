@@ -1,4 +1,4 @@
-console.log('linked');
+// console.log('linked');
 
 var cat = {
 	name: "",
