@@ -9,6 +9,11 @@ body{
 
 }
 
+body{
+	font-family: helvetica;
+}
+
+
 #kitten {
 	margin: 0 auto;
 	width: 300px;
@@ -33,7 +38,23 @@ button{
 .meter{
 	justify-content: space-between;
 	flex-grow: 1;
+	text-align: center;
 }
 .metricDisplay{
 	text-align: center;
 }
+
+#outer{
+	display: flex;
+}
+
+.shift{
+	width: 25%;
+}
+
+
+
+
+
+
+

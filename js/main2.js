@@ -39,7 +39,6 @@ feedButton.click(function(){
 	cat.hunger = 0;
 	beenFed++
 	cat.purr();
-	catNap();
 	cat.image.attr('src', 'images/transparentKitten.png');
 });
 
@@ -83,7 +82,7 @@ setInterval(
 		hungry();
 		dead();
 	},
-	5000)
+	1000)
 
 
 
@@ -102,12 +101,11 @@ var lightsOut = function(){
 		body.css('background-color', '#AF8B61')
 		notHungry();
 		hungry();
+		cat.sleep = 0;
+		lightToggle = true
 	}
 }
-var lightsOutButton = $('#lightsOutButton')
-lightsOutButton.click(function(){
-	lightsOut()
-})
+
 
 setInterval(
 	function(){
@@ -118,11 +116,39 @@ setInterval(
 		else if(cat.sleep < 40){
 			$('#sleepMeter').text('Tired')
 		}
-		else if(cat.sleep < 50){
+		else if(cat.sleep < 50 && cat.hunger < 50){
 			lightsOut();
 		}
 	},
-	5000)
+	1000)
+
+var lightsOutButton = $('#lightsOutButton')
+lightsOutButton.click(function(){
+	lightsOut()
+})
+
+
+var pos = 0
+
+setInterval(
+	function(){
+		pos++
+		if(pos < 5){
+			$('#pos' + pos).append($('#kitten'))	
+		}
+		else if(pos === 5){
+			$('#pos3').append($('#kitten'))
+		}
+		else if(pos === 6){
+			$('#pos2').append($('#kitten'))
+		}
+		else if(pos > 6){
+			$('#pos1').append($('#kitten'))
+			pos = 0
+		}
+			// console.log(pos)
+	},
+	1000)
 
 
 
